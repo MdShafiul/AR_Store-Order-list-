@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Data</title>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for( 'static' , filename='style.css' ) }}" >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<h1 align="center">Order list</h1>
+<h6 align="center">Note : time zone in UTC + 00:00</h6>
+
+<table border = 1 align="center"  class="table-fill">
+    <thead>
+        <tr>
+            <th  class="text-left" >ID</th>
+            <th  class="text-left" >Time</th>
+            <th  class="text-left" >Product</th>
+            <th  class="text-left" >Customer</th>
+            <th  class="text-left" >Contact</th>
+            <th  class="text-left" >Address</th>
+            <th  class="text-left" >Price</th>
+            <th  class="text-left" >Shipping</th>
+            <th  class="text-left" >Total</th>
+        </tr>
+    </thead>
+    <tbody class="table-hover">
+    {% for customer in mainArray %}
+    <tr>
+        <td  class="text-left" > {{customer[6]}} </td>
+        <td  class="text-left" > {{customer[5]}} </td>
+        <td  class="text-left" > {{customer[7]}} </td>
+        <td  class="text-left" > {{customer[2]}} </td>
+        <td  class="text-left" > {{customer[1]}} </td>
+        <td  class="text-left" > {{customer[0]}} </td>
+        <td  class="text-left" > {{customer[3]}} $</td>
+        <td  class="text-left" > {{customer[4]}} $</td>
+        <td  class="text-left" > {{customer[3] + customer[4]}} $</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
